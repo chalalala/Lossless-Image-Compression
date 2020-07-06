@@ -1,8 +1,8 @@
 import cv2 as cv
 import numpy as np
 import queue
-import os
-
+import os,sys
+from compare import compare
 
 # class node
 class Node:
@@ -192,8 +192,15 @@ class HuffmanCoding:
         print("Decompressed file's size: " + str(decompress_size))
         
 
-h = HuffmanCoding('messi.bmp')
+path = sys.argv[1]
+h = HuffmanCoding(path)
 # compress .bmp file and save to .bin file
 h.compress('compress.bin')
 # # decompress file .bin file and save to .bmp file
 h.decompress('compress.bin', 'decompressed.bmp')
+
+# Compare original and decompressed image
+paths = [path,'decompressed.bmp']
+titles = ['Original','Decompressed']
+compare(paths,titles)
+
