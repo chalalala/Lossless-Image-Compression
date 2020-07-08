@@ -2,7 +2,6 @@ import cv2 as cv
 import numpy as np
 import queue
 import os,sys
-from compare import compare
 
 # class node
 class Node:
@@ -124,7 +123,7 @@ class HuffmanCoding:
             output.write(bytes(b))
         
         # print compress's info
-        print("Compressed!!!")
+        print("Compressed successfully.")
         # file size in bytes
         old_size = os.path.getsize(self.path)
         new_size = os.path.getsize(output_path)
@@ -185,7 +184,7 @@ class HuffmanCoding:
 
         
         # print decompress's info
-        print("Decompressed!!!")
+        print("Decompressed successfully.")
         origin_size = os.path.getsize(self.path)
         decompress_size = os.path.getsize(output_path)
         print("Original file's size: " + str(origin_size))
