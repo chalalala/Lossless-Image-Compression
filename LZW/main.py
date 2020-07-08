@@ -63,8 +63,6 @@ def decompress(compressed):
 
 path = sys.argv[1]
 im = Image.open(path)
-# im1 = Image.new('L', im.size, 'black')
-# im1.show()
 width, height = im.size
 img = GrayscaleImage(N_ROWS, N_COLS) #create 2D array with 1000 rows and 1000 column; 
 pixels = ""
@@ -91,18 +89,17 @@ decompress_ed =decompress(idk)
 intt = re.findall('\d+', decompress_ed)
 for i in range(len(intt)):
     intt[i]= int(intt[i])
-# print(intt)
+
 def divide_chunks(l, n): 
     # looping till length l 
     for i in range(0, len(l), n):  
         yield l[i:i + n] 
 neww = list(divide_chunks(intt, 3))
-# print(neww)
-# make it to be tuples
 
+# make it to be tuples
 for i in range(len(neww)):
     neww [i]=tuple(neww[i])
-# print(neww)
+
 new_img = Image.new("RGB", (width,height))
 
 new_pixels = new_img.load()
@@ -119,8 +116,4 @@ origin_size = os.path.getsize(path)
 decompress_size = os.path.getsize('result.tiff')
 print("Original size: " + str(origin_size))
 print("Decompressed size: " + str(decompress_size))
-<<<<<<< HEAD:LZW/main.py
-print('Compress Ratio: ', int(origin_size)/int(decompress_size))
-=======
 print("Compress ratio: " + str(origin_size/decompress_size))
->>>>>>> 9e131f11fa3598b3f0db0a976ac600dea673b56e:LZW/grayscale_test.py
