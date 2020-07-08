@@ -13,6 +13,7 @@ class GrayscaleImage:
         :param num_cols: the number of columns.
         """
         # Allocates the 2D array for the grid.
+        #Create an image which is the empty array consist of n rows and n columns
         self._image = Array2D(n_rows, n_cols)
 
     def width(self):

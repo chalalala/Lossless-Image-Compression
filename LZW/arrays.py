@@ -85,6 +85,7 @@ class _ArrayIterator:
 
     def __next__(self):
         '''
+        Nếu current index nhỏ hơn len(array) thì entry là value của current index, current index +1 và return entry
         Gets the next element
         :return: next element
         '''
@@ -108,7 +109,7 @@ class Array2D:
         :param num_cols: int
         '''
         self.rows = Array(num_rows)
-        # Create the 1 -D arrays for each row of the 2 -D array.
+        # Create the 1 -D arrays for each row of the 2 -D array with the number of element is the number of column
         for i in range(num_rows):
             self.rows[i] = Array(num_cols)
 
@@ -167,92 +168,92 @@ class Array2D:
         array_1d[col] = value
 
 
-class DynamicArray:
-    """A dynamic array class akin to a simplified Python list."""
-    DEFAULT_CAPACITY = 1
+# class DynamicArray:
+#     """A dynamic array class akin to a simplified Python list."""
+#     DEFAULT_CAPACITY = 1
 
-    def __init__(self):
-        """
-        Create an empty array."
-        """""
-        self._n = 0  # count actual elements
-        self._A = self._make_array(DynamicArray.DEFAULT_CAPACITY)  # low-level array
+#     def __init__(self):
+#         """
+#         Create an empty array."
+#         """""
+#         self._n = 0  # count actual elements
+#         self._A = self._make_array(DynamicArray.DEFAULT_CAPACITY)  # low-level array
 
-    def __len__(self):
-        """
-        Return number of elements stored in the array.
-        :return: int
-        """
-        return self._n
+#     def __len__(self):
+#         """
+#         Return number of elements stored in the array.
+#         :return: int
+#         """
+#         return self._n
 
-    def __getitem__(self, k):
-        """
-        Return element at index k.
-        :param k: int
-        :return: value
-        """
-        if not 0 <= k < self.n:
-            raise IndexError('invalid index')
-        return self._A[k]  # retrieve from array
+#     def __getitem__(self, k):
+#         """
+#         Return element at index k.
+#         :param k: int
+#         :return: value
+#         """
+#         if not 0 <= k < self.n:
+#             raise IndexError('invalid index')
+#         return self._A[k]  # retrieve from array
 
-    def append(self, obj):
-        """
-        Add object to end of the array.
-        :param obj: value to append
-        :return: None
-        """
-        if self._n == len(self._A):  # not enough room
-            self._resize(2 * len(self._A))  # so double capacity
-        self._A[self._n] = obj
-        self._n += 1
+#     def append(self, obj):
+#         """
+#         Add object to end of the array.
+#         :param obj: value to append
+#         :return: None
+#         """
+#         if self._n == len(self._A):  # not enough room
+#             self._resize(2 * len(self._A))  # so double capacity
+#         self._A[self._n] = obj
+#         self._n += 1
 
-    def _resize(self, c):  # nonpublic utitity
-        """
-        Resize internal array to capacity c.
-        :param c: int
-        :return: None
-        """
-        B = self._make_array(c)  # new (bigger) array
-        for k in range(self._n):  # for each existing value
-            B[k] = self._A[k]
-        self._A = B  # use the bigger array
+#     def _resize(self, c):  # nonpublic utitity
+#         """
+#         Resize internal array to capacity c.
+#         :param c: int
+#         :return: None
+#         """
+#         B = self._make_array(c)  # new (bigger) array
+#         for k in range(self._n):  # for each existing value
+#             B[k] = self._A[k]
+#         self._A = B  # use the bigger array
 
-    def _make_array(self, size):  # nonpublic utitity
-        """
-        Return new array with capacity c.
-        :param c: int
-        :return: an array
-        """
-        return Array(size)  # see ctypes documentation
+#     def _make_array(self, size):  # nonpublic utitity
+#         """
+#         Return new array with capacity c.
+#         :param c: int
+#         :return: an array
+#         """
+#         return Array(size)  # see ctypes documentation
 
-    def insert(self, k, value):
-        """
-        Insert value at index k, shifting subsequent values rightward.
-        :param k: int
-        :param value:value
-        :return: None
-        """
-        # (for simplicity, we assume 0 <= k <= n in this verion)
-        if self._n == len(self._A):  # not enough room
-            self._resize(2 * len(self._A))  # so double capacity
-        for j in range(self._n, k, -1):  # shift rightmost first
-            self._A[j] = self._A[j - 1]
-        self._A[k] = value  # store newest element
-        self._n += 1
+#     def insert(self, k, value):
+#         """
+#         Insert value at index k, shifting subsequent values rightward.
+#         :param k: int
+#         :param value:value
+#         :return: None
+#         """
+#         # (for simplicity, we assume 0 <= k <= n in this verion)
+#         if self._n == len(self._A):  # not enough room
+#             self._resize(2 * len(self._A))  # so double capacity
+#         for j in range(self._n, k, -1):  # shift rightmost first
+#             self._A[j] = self._A[j - 1]
+#         self._A[k] = value  # store newest element
+#         self._n += 1
 
-    def remove(self, value):
-        """
-        Remove first occurrence of value( or  raise ValueError).
-        :param value: value
-        :return: 0
-        """
-        # note: we do not consider shrinking the dynamic array in this version
-        for k in range(self._n):
-            if self._A[k] == value:  # found a match!
-                for j in range(k, self._n - 1):  # shift others to fill gap
-                    self._A[j] = self._A[j + 1]
-                self._A[self._n - 1] = None  # help garbage collection
-                self._n -= 1  # we have one less item
+#     def remove(self, value):
+#         """
+#         Remove first occurrence of value( or  raise ValueError).
+#         :param value: value
+#         :return: 0
+#         """
+#         # note: we do not consider shrinking the dynamic array in this version
+#         for k in range(self._n):
+#             if self._A[k] == value:  # found a match!
+#                 for j in range(k, self._n - 1):  # shift others to fill gap
+#                     self._A[j] = self._A[j + 1]
+#                 self._A[self._n - 1] = None  # help garbage collection
+#                 self._n -= 1  # we have one less item
 
-                return  # exit immediately
-        raise ValueError("value not found")  # only reached if no match
+#                 return  # exit immediately
+#         raise ValueError("value not found")  # only reached if no match
