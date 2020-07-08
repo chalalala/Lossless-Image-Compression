@@ -119,4 +119,8 @@ origin_size = os.path.getsize(path)
 decompress_size = os.path.getsize('result.tiff')
 print("Original size: " + str(origin_size))
 print("Decompressed size: " + str(decompress_size))
+<<<<<<< HEAD:LZW/main.py
 print('Compress Ratio: ', int(origin_size)/int(decompress_size))
+=======
+print("Compress ratio: " + str(origin_size/decompress_size))
+>>>>>>> 9e131f11fa3598b3f0db0a976ac600dea673b56e:LZW/grayscale_test.py

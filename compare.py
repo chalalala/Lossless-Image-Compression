@@ -1,4 +1,4 @@
-import cv2
+import cv2, sys
 import matplotlib.pyplot as plt
 
 def compare(paths,titles):
@@ -15,3 +15,8 @@ def compare(paths,titles):
     plt.tight_layout(pad=.5)
     plt.show()
 
+paths = []
+paths.append(sys.argv[1])
+paths.append(sys.argv[2])
+
+compare(paths, ['example', 'result'])
