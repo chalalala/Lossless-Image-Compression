@@ -202,5 +202,3 @@ h.decompress('compress.bin', 'decompressed.bmp')
 # Compare original and decompressed image
 paths = [path,'decompressed.bmp']
 titles = ['Original','Decompressed']
-compare(paths,titles)
-
