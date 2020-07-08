@@ -1,0 +1,32 @@
+XING_T24.TIF
+Decompressed successfully
+Original size: 118248
+Decompressed size: 118220
+Compress ratio: 1.0002368465572662
+
+marbles.BMP
+Decompressed successfully
+Original size: 4264316
+Decompressed size: 4261397
+Compress ratio: 1.0006849866370113
+
+lethina.tiff
+Decompressed successfully
+Original size: 786572
+Decompressed size: 786572
+Compress ratio: 1.0
+
+messi.bmp
+Decompressed successfully
+Original size: 3499338
+Decompressed size: 3499340
+Compress ratio: 0.9999994284636532
+
+demi.png
+
+demi.jpg
+Decompressed successfully
+Original size: 63458
+Decompressed size: 720140
+Compress ratio: 0.08811897686560946
+
