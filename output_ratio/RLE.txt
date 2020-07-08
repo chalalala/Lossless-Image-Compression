@@ -1,0 +1,17 @@
+demi.jpg 
+Ratio :1.005776
+
+demi.png
+Ratio :1.143930
+
+lethina.tiff 
+Ratio :0.925735
+
+marbles.BMP 
+Ratio :0.974370
+
+messi.bmp  
+Ratio :1.328734
+
+XING_T24.TIF 
+Ratio :0.932905
