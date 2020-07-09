@@ -1,10 +1,12 @@
 # Compress-IMG-with-RLE
-compress image by RLE algorithm 
+Compress image by RLE algorithm 
 
 # Requirement
-- python3.x
-- open cv
+- Python3.x
+- OpenCV
 - numpy
 
 # Usage
-python "Main.py" "Original.jpeg"
+```
+python main.py Original.jpeg
+```
